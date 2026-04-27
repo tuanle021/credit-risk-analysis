@@ -6,6 +6,16 @@ This project is an end-to-end credit risk analytics pipeline built using a large
 
 ---
 
+## 🧠 Executive Summary
+
+This project analyses a large-scale loan dataset to identify key drivers of credit risk and loan default. Using SQL and Excel, the analysis reveals that default rates increase significantly with lower credit grades, higher debt-to-income ratios, and lower income levels. 
+
+The findings highlight that borrower financial health and loan characteristics are strong indicators of default risk. In particular, high DTI borrowers and certain loan purposes (e.g., small business loans) represent higher-risk segments.
+
+An Excel dashboard was developed to present these insights in a clear, business-friendly format, enabling easy identification of risk patterns within the loan portfolio.
+
+---
+
 ## 🎯 Business Problem
 
 Financial institutions need to assess borrower creditworthiness and understand the factors that contribute to loan defaults. These insights help improve lending decisions, reduce financial losses, and optimise credit risk strategies.
