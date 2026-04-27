@@ -12,7 +12,7 @@ This project analyses a large-scale loan dataset to identify key drivers of cred
 
 The findings highlight that borrower financial health and loan characteristics are strong indicators of default risk. In particular, high DTI borrowers and certain loan purposes (e.g., small business loans) represent higher-risk segments.
 
-An Excel dashboard was developed to present these insights in a clear, business-friendly format, enabling easy identification of risk patterns within the loan portfolio.
+An Excel-based dashboard was developed to present these insights in a clear, business-friendly format, enabling easy identification of risk patterns within the loan portfolio.
 
 ---
 
@@ -37,6 +37,7 @@ Financial institutions need to assess borrower creditworthiness and understand t
 - PostgreSQL
 - SQL
 - pgAdmin
+- Microsoft Excel
 - VS Code
 
 ---
@@ -45,9 +46,9 @@ Financial institutions need to assess borrower creditworthiness and understand t
 
 Raw LendingClub Dataset (CSV)
 ↓
-Python Data Ingestion (Pandas)
+Python Data Processing (Pandas)
 ↓
-Schema Exploration
+Schema Exploration & Validation
 ↓
 Feature Selection (145 → 11 columns)
 ↓
@@ -57,7 +58,9 @@ Clean Dataset Export
 ↓
 PostgreSQL Data Load
 ↓
-SQL-Based Credit Risk Analysis
+SQL-Based Analysis
+↓
+Excel Visualisation & Dashboard
 
 ---
 
@@ -68,7 +71,7 @@ SQL-Based Credit Risk Analysis
 - Created a binary target variable (`default_flag`) to identify loan defaults:
   - 1 → Charged Off / Default  
   - 0 → Non-default  
-- Prepared dataset for SQL-based analysis in PostgreSQL
+- Prepared dataset for structured analysis in PostgreSQL
 
 ---
 
@@ -88,6 +91,14 @@ SQL-Based Credit Risk Analysis
 
 ---
 
+## 📊 Dashboard
+
+An Excel-based dashboard was created to visualise key credit risk metrics, including default rates by credit grade, income level, debt-to-income ratio, and loan purpose.  
+
+The dashboard provides a clear, business-friendly view of the loan portfolio and highlights high-risk borrower segments.
+
+---
+
 ## 📁 SQL Analysis
 
 All SQL queries used for analysis can be found in the `sql/analysis.sql` file.
@@ -96,20 +107,19 @@ All SQL queries used for analysis can be found in the `sql/analysis.sql` file.
 
 ## 🚀 How to Run This Project
 
-1. Run Python preprocessing script:
-- python scripts/01_clean_data.py
+1. Run the Python preprocessing script: python scripts/01_clean_data.py
 
-2. Load `clean_loans.csv` into PostgreSQL using pgAdmin
+2. Load the cleaned dataset (`clean_loans.csv`) into PostgreSQL using pgAdmin
 
-3. Run SQL queries from `sql/analysis.sql`
+3. Execute queries from `sql/analysis.sql` to reproduce analysis
 
 ---
 
 ## 🧾 Future Improvements
 
-- Build interactive dashboards (Excel / Power BI)
+- Build interactive dashboards (Excel slicers / Power BI)
 - Develop predictive models (logistic regression, XGBoost)
-- Automate ETL pipeline
-- Optimise database performance
+- Automate the ETL pipeline
+- Optimise database performance for large-scale queries
 
 ---
