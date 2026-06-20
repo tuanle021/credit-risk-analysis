@@ -1,7 +1,7 @@
 import pandas as pd
 
 # load raw dataset 
-df = pd.read_csv(r"..\data\loan.csv")
+df = pd.read_csv(r"\data\loan.csv")
 
 print(df.columns.tolist())
 
