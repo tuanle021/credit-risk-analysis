@@ -2,23 +2,25 @@
 
 ## 📊 Project Overview
 
-This project is an end-to-end credit risk analytics pipeline built using a large-scale LendingClub dataset. It simulates a real-world banking workflow by transforming raw loan data into an analysis-ready dataset and identifying key drivers of loan default risk.
+This project is an end-to-end credit risk analytics pipeline built using a large-scale LendingClub dataset. It simulates a real-world banking workflow by transforming raw loan data into an analysis-ready dataset and identifying key drivers of loan default risk across multiple analytical layers including SQL, Excel, and Python.
+
+The project demonstrates a full analytics lifecycle: data cleaning, feature engineering, database analysis, and automated visual reporting.
 
 ---
 
 ## 🧠 Executive Summary
 
-This project analyses a large-scale loan dataset to identify key drivers of credit risk and loan default. Using SQL and Excel, the analysis reveals that default rates increase significantly with lower credit grades, higher debt-to-income ratios, and lower income levels. 
+This project analyses a large-scale loan dataset to identify key drivers of credit risk and loan default. Across SQL, Excel, and Python-based analysis, the findings consistently show that borrower financial health and credit classification are the strongest predictors of default behaviour.
 
-The findings highlight that borrower financial health and loan characteristics are strong indicators of default risk. In particular, high DTI borrowers and certain loan purposes (e.g., small business loans) represent higher-risk segments.
+Default risk increases significantly with lower credit grades, higher debt-to-income ratios, and lower income levels. Certain loan purposes also exhibit elevated risk profiles.
 
-An Excel-based dashboard was developed to present these insights in a clear, business-friendly format, enabling easy identification of risk patterns within the loan portfolio.
+A Python-based visualisation pipeline was later introduced to automate and validate these insights, producing reproducible charts for portfolio and reporting use.
 
 ---
 
 ## 🎯 Business Problem
 
-Financial institutions need to assess borrower creditworthiness and understand the factors that contribute to loan defaults. These insights help improve lending decisions, reduce financial losses, and optimise credit risk strategies.
+Financial institutions must accurately assess borrower creditworthiness and understand the drivers of loan default. These insights are essential for improving lending decisions, reducing credit losses, and optimising risk-based pricing strategies.
 
 ---
 
@@ -33,7 +35,7 @@ Financial institutions need to assess borrower creditworthiness and understand t
 
 ## 🛠️ Tools & Technologies
 
-- Python (Pandas)
+- Python (Pandas, Matplotlib, Seaborn)
 - PostgreSQL
 - SQL
 - pgAdmin
@@ -44,70 +46,106 @@ Financial institutions need to assess borrower creditworthiness and understand t
 
 ## ⚙️ Project Workflow
 
-Raw LendingClub Dataset (CSV)
-↓
-Python Data Processing (Pandas)
-↓
-Schema Exploration & Validation
-↓
-Feature Selection (145 → 11 columns)
-↓
-Target Engineering (default_flag)
-↓
-Clean Dataset Export
-↓
-PostgreSQL Data Load
-↓
-SQL-Based Analysis
-↓
-Excel Visualisation & Dashboard
+Raw LendingClub Dataset (CSV)  
+↓  
+Python Data Processing (Pandas)  
+↓  
+Schema Exploration & Validation  
+↓  
+Feature Selection (145 → 11 columns)  
+↓  
+Target Engineering (`default_flag`)  
+↓  
+Clean Dataset Export  
+↓  
+PostgreSQL Data Load  
+↓  
+SQL-Based Analysis  
+↓  
+Python Visualisation Pipeline (Seaborn / Matplotlib)  
+↓  
+Excel Dashboard  
 
 ---
 
 ## 🧹 Data Preparation & Feature Engineering
 
-- Selected key variables relevant to credit risk analysis
-- Reduced dataset dimensionality from 145 to 11 columns
+- Selected key variables relevant to credit risk analysis  
+- Reduced dataset dimensionality from 145 to 11 columns  
 - Created a binary target variable (`default_flag`) to identify loan defaults:
   - 1 → Charged Off / Default  
   - 0 → Non-default  
-- Prepared dataset for structured analysis in PostgreSQL
+- Prepared dataset for structured analysis across SQL and Python environments  
+
+---
+
+## 🐍 Python Visualisation Pipeline (Step 11)
+
+After completing SQL-based analysis, the project was extended using Python to build a reproducible analytics and visualisation pipeline.
+
+Using Pandas, Matplotlib, and Seaborn, the cleaned dataset was re-analysed to validate key risk drivers and generate automated visual insights.
+
+This approach enables consistent, reusable, and scalable credit risk reporting.
+
+### Key analyses include:
+- Default rate by credit grade  
+- Default rate by income band  
+- Default rate by debt-to-income (DTI) ratio  
+- Default rate by loan purpose  
+
+---
+
+## 📊 Visual Analytics Dashboard (Python)
+
+The Python pipeline generates automated visualisations that replicate and validate earlier SQL and Excel findings.
+
+These charts highlight the strongest drivers of loan default risk across key borrower segments.
+
+### Credit Grade vs Default Risk
+
+![Credit Grade Chart](assets/grade_chart.png)
+
+### Income Band vs Default Risk
+
+![Income Chart](assets/income_chart.png)
+
+### Debt-to-Income (DTI) vs Default Risk
+
+![DTI Chart](assets/dti_chart.png)
+
+### Loan Purpose vs Default Risk
+
+![Purpose Chart](assets/purpose_chart.png)
 
 ---
 
 ## 📊 Key Insights
 
-- The overall loan default rate is approximately **11.6%**, indicating a moderately risky loan portfolio with a typical class imbalance between defaulting and non-defaulting borrowers.
+- The overall loan default rate is approximately **11.6%**, indicating a moderate level of portfolio risk and a clear imbalance between performing and non-performing loans.
 
-- **Credit grade is a strong predictor of default risk**, with default rates increasing consistently from Grade A (lowest risk) to Grade G (highest risk).
+- **Credit grade is the strongest predictor of default risk**, showing a clear monotonic relationship where risk increases consistently from Grade A through to lower credit grades.
 
-- **Income level is inversely related to default risk**, with lower income borrowers showing higher likelihood of default.
+- **Income level demonstrates an inverse relationship with default probability**, with lower-income borrowers exhibiting significantly higher default rates.
 
-- **Debt-to-income (DTI) ratio is a key risk driver**, where higher DTI levels correspond to increased default rates.
+- **Debt-to-income (DTI) ratio is a critical risk driver**, with higher leverage levels strongly associated with increased likelihood of default.
 
-- **Loan purpose impacts default behaviour**, with certain categories such as small business and personal loans showing higher risk.
+- **Loan purpose introduces meaningful segmentation in risk profiles**, with categories such as small business and personal loans showing elevated default rates.
 
-- Overall, borrower financial health and credit grading are critical factors in predicting loan performance.
-
----
-
-## 📊 Dashboard
-
-An Excel-based dashboard was created to visualise key credit risk metrics, including default rates by credit grade, income level, debt-to-income ratio, and loan purpose.  
-
-The dashboard provides a clear, business-friendly view of the loan portfolio and highlights high-risk borrower segments.
+- Overall, borrower financial strength and credit classification are the most significant indicators of credit risk in this dataset.
 
 ---
 
 ## 📁 SQL Analysis
 
-All SQL queries used for analysis can be found in the `sql/analysis.sql` file.
+All SQL queries used for analysis are stored in the `sql/analysis.sql` file.
 
 ---
 
 ## 🚀 How to Run This Project
 
-1. Run the Python preprocessing script: python scripts/01_clean_data.py
+1. Run the Python preprocessing script: (`python scripts/01_clean_data.py`) 
+
+2. Generate Python Visualisations: (`python scripts/02_visualisations.py`)
 
 2. Load the cleaned dataset (`clean_loans.csv`) into PostgreSQL using pgAdmin
 
@@ -117,9 +155,13 @@ All SQL queries used for analysis can be found in the `sql/analysis.sql` file.
 
 ## 🧾 Future Improvements
 
-- Build interactive dashboards (Excel slicers / Power BI)
+- Build interactive dashboards using Power BI or Excel slicers
 - Develop predictive models (logistic regression, XGBoost)
-- Automate the ETL pipeline
+- Automate full ETL + reporting pipeline
 - Optimise database performance for large-scale queries
+- Convert Python pipeline into modular production-style scripts
 
+ ## 📌 Notes
+
+- This project demonstrates a full credit risk analytics workflow combining SQL, Python, and Excel to replicate real-world financial risk reporting processes.
 ---

@@ -3,6 +3,7 @@ __pycache__/
 *.pyc
 .venv
 __pycache__
+output/
 
 # Data files add
 *.csv
