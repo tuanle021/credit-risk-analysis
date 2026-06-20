@@ -1,0 +1,7 @@
+CREDIT RISK ANALYSIS REPORT
+===========================
+
+1. Default Rate by Grade shows increasing risk as credit grade worsens.
+2. Higher income bands generally show lower default risk.
+3. Higher DTI bands are strongly associated with increased default risk.
+4. Loan purpose varies significantly in risk profile.
